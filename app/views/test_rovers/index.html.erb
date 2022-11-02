@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Test Rovers</h1><%= @text %>
+
+<%= form_tag '/rover', multipart: true do %>
+  <label for="file">Arquivo</label> <%= file_field_tag "file" %>
+  <div><%= submit_tag 'enviar' %></div>
+<% end %>
+
