@@ -49,7 +49,7 @@ docker exec -it rover bundle exec rails db:create
 
 # Observações
 
-## Considerei que o rover não pode sair do platoau e também não pode ir para uma posição que já exista outro rover (não ocorre conflito), assim o comando é "descartado" e a execução continua com o próximo comando.
+## Considerei que o rover não pode sair do plateau e também não pode ir para uma posição que já exista outro rover (não ocorre conflito), assim o comando é "descartado" e a execução continua com o próximo comando.
 
 Assim:
 ```ruby
