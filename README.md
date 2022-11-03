@@ -67,3 +67,13 @@ retorna:
 ```
 
 ## Temos casos de testes na pasta "testes"
+
+
+![image](https://user-images.githubusercontent.com/22568497/199675580-e51a9f74-fe76-4b60-a9c0-1a9e501aecdf.png)
+
+![image](https://user-images.githubusercontent.com/22568497/199675649-81a918c9-577d-4307-b704-1a86cbab931d.png)
+
+![image](https://user-images.githubusercontent.com/22568497/199675845-581ef2ab-cd72-41a9-9ba8-c4c4bf9e937a.png)
+
+
+
