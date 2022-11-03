@@ -1,0 +1,5 @@
+5 5
+   1    3    N
+RMMML
+1 1 N
+MMMMMMMMMMRM
