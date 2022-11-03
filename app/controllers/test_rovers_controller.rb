@@ -6,7 +6,7 @@ class TestRoversController < ApplicationController
     parsed_file = Parser.new(content).call
 
     if parsed_file[:errors].nil?
-      @rovers = Execute.new(parsed_file).call
+      @rovers = Navigate.new(parsed_file).call
     else
       @errors = parsed_file[:errors]
     end
