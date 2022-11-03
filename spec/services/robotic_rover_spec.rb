@@ -108,9 +108,9 @@ RSpec.describe RoboticRover, type: :service do
     end
 
     it "should return the correct response when robotic_rover is in the East edge" do
-      params = { plateau: plateau, initial_position: { x: 1, y: 5, direction: 'E' }, commands: ['M'] }
+      params = { plateau: plateau, initial_position: { x: 5, y: 5, direction: 'E' }, commands: ['M'] }
 
-      expect(robotic_rover.new(params).call).to eql({ x: 1, y: 5, direction: 'E' })
+      expect(robotic_rover.new(params).call).to eql({ x: 5, y: 5, direction: 'E' })
     end
   end
 end

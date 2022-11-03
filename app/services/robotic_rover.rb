@@ -8,6 +8,7 @@ class RoboticRover
     @commands = commands
     @plateau = plateau
     @current_position = initial_position
+    @state = state_factory
   end
 
   def call
@@ -25,57 +26,18 @@ class RoboticRover
 
   def execute(command)
     if command == 'M'
-      move
+      state.move
     elsif command == 'L'
-      rotate_left
+      state.rotate_left(self)
     elsif command == 'R'
-      rotate_right
+      state.rotate_right(self)
     end
   end
 
-  def execute(command)
-    if command == 'M'
-      move
-    elsif command == 'L'
-      rotate_left
-    elsif command == 'R'
-      rotate_right
-    end
-  end
-
-  def move
-    if current_position[:direction] == 'N' && plateau.can_move?(current_position)
-      current_position[:y] += 1 
-    elsif current_position[:direction] == 'S' && plateau.can_move?(current_position)
-      current_position[:y] -= 1
-    elsif current_position[:direction] == 'E' && plateau.can_move?(current_position)
-      current_position[:x] += 1
-    elsif current_position[:direction] == 'W' && plateau.can_move?(current_position)
-      current_position[:x] -= 1
-    end
-  end
-
-  def rotate_left
-    if current_position[:direction] == 'N'
-      current_position[:direction] = 'W'
-    elsif current_position[:direction] == 'S'
-      current_position[:direction] = 'E'
-    elsif current_position[:direction] == 'E'
-      current_position[:direction] = 'N'
-    elsif current_position[:direction] == 'W'
-      current_position[:direction] = 'S'
-    end
-  end
-
-  def rotate_right
-    if current_position[:direction] == 'N'
-      current_position[:direction] = 'E'
-    elsif current_position[:direction] == 'S'
-      current_position[:direction] = 'W'
-    elsif current_position[:direction] == 'E'
-      current_position[:direction] = 'S'
-    elsif current_position[:direction] == 'W'
-      current_position[:direction] = 'N'
-    end
+  def state_factory
+    return State::North.new(position: initial_position, plateau: plateau) if current_position[:direction] == 'N'
+    return State::South.new(position: initial_position, plateau: plateau) if current_position[:direction] == 'S'
+    return State::Weast.new(position: initial_position, plateau: plateau) if current_position[:direction] == 'W'
+    State::East.new(position: initial_position, plateau: plateau) if current_position[:direction] == 'E'
   end
 end
