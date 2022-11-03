@@ -3,10 +3,10 @@ class TestRoversController < ApplicationController
 
   def commands
     content = params[:file].read
-    parsed_file = Parser.new(content).call
+    parsed_file = Parser.call(content)
 
     if parsed_file[:errors].nil?
-      @rovers = Navigate.new(parsed_file).call
+      @rovers = Navigate.call(parsed_file)
     else
       @errors = parsed_file[:errors]
     end

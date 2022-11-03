@@ -1,4 +1,6 @@
 class Parser
+  include BaseService
+
   VALID_DIRECTIONS = ['N', 'S', 'E', 'W'].freeze
   VALID_COMMANDS = ['L', 'R', 'M'].freeze
 
@@ -62,7 +64,6 @@ class Parser
 
     return false if !digit?(plateau_parameters.first) || !digit?(plateau_parameters.last)
 
-    # TODO: remover daqui
     plateau[:x] = plateau_parameters.first.to_i
     plateau[:y] = plateau_parameters.last.to_i
 

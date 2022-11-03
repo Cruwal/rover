@@ -1,4 +1,6 @@
 class RoboticRover
+  include BaseService
+
   attr_accessor :state
 
   def initialize(initial_position:, commands:, plateau:)

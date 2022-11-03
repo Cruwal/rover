@@ -1,4 +1,6 @@
 class Navigate 
+  include BaseService
+
   def initialize(plateau:, rovers:)
     @plateau = Plateau.new(plateau) 
     @rovers = rovers
@@ -7,7 +9,7 @@ class Navigate
   def call
     rovers.map do |rover|
       if rover[:errors].empty?
-        end_position = RoboticRover.new(plateau: plateau, initial_position: rover[:initial_position], commands: rover[:commands]).call
+        end_position = RoboticRover.call(plateau: plateau, initial_position: rover[:initial_position], commands: rover[:commands])
         plateau.add_obstacle(end_position)
 
         end_position
