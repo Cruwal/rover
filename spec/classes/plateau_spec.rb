@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Plateau, type: :service do
+RSpec.describe Plateau, type: :class do
   subject(:plateau) { described_class }
 
   context "when can_move?" do

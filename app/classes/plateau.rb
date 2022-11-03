@@ -41,3 +41,4 @@ class Plateau
     !obstacles[current_x].include?(current_y)
   end
 end
+
